@@ -15,13 +15,13 @@ $query-> execute();
 $results = $query -> fetchAll(PDO::FETCH_OBJ);
 if($query -> rowCount() > 0)
 {
-$con="update tblstudents set Password=:newpassword where EmailId=:email and MobileNumber=:mobile";
+$con="UPDATE tblstudents SET Password=:newpassword WHERE EmailId=:email AND MobileNumber=:mobile";
 $chngpwd1 = $dbh->prepare($con);
 $chngpwd1-> bindParam(':email', $email, PDO::PARAM_STR);
 $chngpwd1-> bindParam(':mobile', $mobile, PDO::PARAM_STR);
 $chngpwd1-> bindParam(':newpassword', $newpassword, PDO::PARAM_STR);
 $chngpwd1->execute();
-echo "<script>alert('Your Password succesfully changed');</script>";
+echo "<script>alert('Your Password is succesfully changed');</script>";
 }
 else {
 echo "<script>alert('Email id or Mobile no is invalid');</script>"; 
@@ -49,7 +49,7 @@ function valid()
 {
 if(document.chngpwd.newpassword.value!= document.chngpwd.confirmpassword.value)
 {
-alert("New Password and Confirm Password Field do not match  !!");
+alert("New Password and Confirm Password Fields do not match!!");
 document.chngpwd.confirmpassword.focus();
 return false;
 }
@@ -96,12 +96,12 @@ return true;
 </div>
 
 <div class="form-group">
-<label>ConfirmPassword</label>
+<label>Confirm Password</label>
 <input class="form-control" type="password" name="confirmpassword" required autocomplete="off"  />
 </div>
 
 
- <button type="submit" name="change" class="btn btn-info">Chnage Password</button> | <a href="index.php">Login</a>
+ <button type="submit" name="change" class="btn btn-info">Change Password</button> | <a href="index.php">Login</a>
 </form>
  </div>
 </div>
